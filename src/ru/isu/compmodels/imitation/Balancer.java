@@ -1,19 +1,21 @@
 package ru.isu.compmodels.imitation;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public interface Balancer {
     /**
      * Позволяет задать пул серверов для балансировщика нагрузки
      * @param servers - пул серверов
      */
-    void setServerPool(Collection<Server> servers);
+    void setServerPool(ArrayList<Server> servers);
 
     /**
      * Возвращает пул серверов балансировщика
      * @return коллекцию серверов, используемых балансировщиком
      */
-    Collection<Server> getServerPool();
+    ArrayList<Server> getServerPool();
 
     /**
      * Балансировка. Балансировщик должен выбрать сервер, который будет обрабатывать новый входящий запрос
@@ -28,5 +30,7 @@ public interface Balancer {
      * @param request
      */
     void process(Request request);
+
+    void getServerStatus();
 
 }

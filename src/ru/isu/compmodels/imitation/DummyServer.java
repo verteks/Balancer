@@ -48,7 +48,7 @@ public class DummyServer implements Server {
      * @return
      */
     private float actualLoad() {
-        return getCurrentLoadUnits() / getPerformance() * 100;
+        return getCurrentLoadUnits()*100 / getPerformance();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class DummyServer implements Server {
             try {
                 Request r = requests.take();
                 //симуляция обработки запроса, просто спим некоторое время
-                Thread.sleep(r.getLoad() / getPerformance()*1000);
+                Thread.sleep((long) ((int)((double)r.getLoad() *1000F) / (double)getPerformance()));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
