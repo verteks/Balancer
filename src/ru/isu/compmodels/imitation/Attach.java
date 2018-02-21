@@ -22,7 +22,7 @@ public class Attach implements Runnable {
                     isStart=false;
                 }
 
-                for (int i=0;i<=180;i++) {
+                for (int i=0;i<=160;i++) {
                     SimpleRequest req = new SimpleRequest();
                     for (Balancer balancer:balancers) {
                         balancer.process(req);

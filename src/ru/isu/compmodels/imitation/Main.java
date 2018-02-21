@@ -30,6 +30,11 @@ public class Main {
         Thread d = new Thread(attach);
         d.start();
 
+        Show show = new Show();
+        show.setBalancer(bList);
+        Thread a = new Thread(show);
+        a.start();
+
 
     }
 
